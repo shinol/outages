@@ -1,5 +1,5 @@
   <ion-card (swipe)="onSwipe($event)">
-    <ion-card-header text-align-end>
+    <ion-card-header text-align-end class="cal-header">
       <ion-row>
         <ion-col col-3>
           <button ion-button icon-only item-left clear (click)="goBack()">
@@ -7,7 +7,7 @@
           </button>
         </ion-col>
         <ion-col>
-          <ion-datetime displayFormat="MMM YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="isoDate" (ionChange)="dateChange($event)"></ion-datetime>
+          <ion-datetime padding-top displayFormat="MMM YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="isoDate" (ionChange)="dateChange($event)"></ion-datetime>
         </ion-col>
         <ion-col col-3>
           <button ion-button icon-only item-right clear (click)="goForward()">
@@ -43,7 +43,7 @@
                     >
                   {{day.day}}
                 </li>
-                <!--<li><ion-icon name="card"></ion-icon></li>-->
+                <li><ion-icon name="card"></ion-icon></li>
               </ul>
             </ion-col>
           </ion-row>

@@ -1,28 +1,32 @@
 calendar {
 
-ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-}
-ion-col {
-    text-align: center;
-    // border-left: 1px #ddd solid;
-    // border-right: 1px #ddd solid;
-}
-ion-datetime {
-    border: 1px solid #ccc;
-}
-.seperator-bottom {
-    border-bottom: 1px #aaa solid;
-}
-.seperator-top {
-    border-top: 1px #ddd solid;
-}
-.action {
-    color: #ef6c00;
-    font-weight: bold;
-}
+    .cal-header {
+        background-color: #d7ffd9;
+    }
+
+
+    ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+    }
+
+    ion-col {
+        text-align: center;
+        // border-left: 1px #ddd solid;
+        // border-right: 1px #ddd solid;
+    }
+
+    .seperator-bottom {
+        border-bottom: 1px #aaa solid;
+    }
+    .seperator-top {
+        border-top: 1px #ddd solid;
+    }
+    .action {
+        color: #ef6c00;
+        font-weight: bold;
+    }
 
 
 }
