@@ -54,7 +54,7 @@ export class CalendarComponent {
     var firstWeek = true;
     var lastWeek = 1;
 
-    while(numDay < daysInMonth) {
+    while(numDay <= daysInMonth) {
       var tmpWeek: Object[] = [];
       for (var i= 0; i <= 6; i++) {
         if (firstWeek && i < this.changedDate.getUTCDay()) {
@@ -72,7 +72,6 @@ export class CalendarComponent {
       }
       daysArray.push(tmpWeek);
     }
-    console.log(daysArray);
     return daysArray;
   }
 
