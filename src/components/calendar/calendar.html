@@ -1,0 +1,58 @@
+  <ion-card (swipe)="onSwipe($event)">
+    <ion-card-header text-align-end>
+      <ion-row>
+        <ion-col col-3>
+          <button ion-button icon-only item-left clear (click)="goBack()">
+            <ion-icon name="arrow-back"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <ion-datetime displayFormat="MMM YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="isoDate" (ionChange)="dateChange($event)"></ion-datetime>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button icon-only item-right clear (click)="goForward()">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+          <ion-row >
+            <ion-col class='seperator-bottom'>Sun</ion-col>
+            <ion-col class='seperator-bottom'>Mon</ion-col>
+            <ion-col class='seperator-bottom'>Tue</ion-col>
+            <ion-col class='seperator-bottom'>Wed</ion-col>
+            <ion-col class='seperator-bottom'>Thu</ion-col>
+            <ion-col class='seperator-bottom'>Fri</ion-col>
+            <ion-col class='seperator-bottom'>Sat</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let days of weeks">
+            <ion-col class='seperator-bottom' *ngFor="let day of days">
+              <ul (click)="boom(day)">
+                <li 
+                    text-center 
+                    *ngIf="day.lighten"
+                    style="color: #aaa;"
+                    >
+                  {{day.day}}
+                </li>
+                <li 
+                    text-center 
+                    *ngIf="!day.lighten" 
+                    >
+                  {{day.day}}
+                </li>
+                <!--<li><ion-icon name="card"></ion-icon></li>-->
+              </ul>
+            </ion-col>
+          </ion-row>
+          
+        </ion-grid>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-item >
+    <ion-label>{{telemetry}}</ion-label>
+  </ion-item>
+
