@@ -1,58 +1,66 @@
-  <ion-card (swipe)="onSwipe($event)">
-    <ion-card-header text-align-end class="cal-header">
-      <ion-row>
-        <ion-col col-3>
-          <button ion-button icon-only item-left clear (click)="goBack()">
-            <ion-icon name="arrow-back"></ion-icon>
-          </button>
-        </ion-col>
-        <ion-col>
-          <ion-datetime padding-top displayFormat="MMM YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="isoDate" (ionChange)="dateChange($event)"></ion-datetime>
-        </ion-col>
-        <ion-col col-3>
-          <button ion-button icon-only item-right clear (click)="goForward()">
-            <ion-icon name="arrow-forward"></ion-icon>
-          </button>
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
-          <ion-row >
-            <ion-col class='seperator-bottom'>Sun</ion-col>
-            <ion-col class='seperator-bottom'>Mon</ion-col>
-            <ion-col class='seperator-bottom'>Tue</ion-col>
-            <ion-col class='seperator-bottom'>Wed</ion-col>
-            <ion-col class='seperator-bottom'>Thu</ion-col>
-            <ion-col class='seperator-bottom'>Fri</ion-col>
-            <ion-col class='seperator-bottom'>Sat</ion-col>
-          </ion-row>
-          <ion-row *ngFor="let days of weeks">
-            <ion-col class='seperator-bottom' *ngFor="let day of days">
-              <ul (click)="boom(day)">
-                <li 
-                    text-center 
-                    *ngIf="day.lighten"
-                    style="color: #aaa;"
-                    >
-                  {{day.day}}
-                </li>
-                <li 
-                    text-center 
-                    *ngIf="!day.lighten" 
-                    >
-                  {{day.day}}
-                </li>
-                <li><ion-icon name="card"></ion-icon></li>
-              </ul>
+<ion-content>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 *ngFor="let card of cards" [attr.id]="card.currentCard">
+      <ion-card  (swipe)="onSwipe($event, card)">
+        <ion-card-header text-align-end class="cal-header">
+          <ion-row>
+            <ion-col col-3>
+              <button ion-button icon-only item-left clear (click)="goBackISay(card)">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              <ion-datetime padding-top displayFormat="MMM YYYY" pickerFormat="MMMM YYYY" [(ngModel)]="card.isoDate" (ionChange)="dateChange($event)"></ion-datetime>
+            </ion-col>
+            <ion-col col-3>
+              <button ion-button icon-only item-right clear (click)="goForwardISay(card)">
+                <ion-icon name="arrow-forward"></ion-icon>
+              </button>
             </ion-col>
           </ion-row>
-          
-        </ion-grid>
-      </ion-card-content>
-  </ion-card>
-
-  <ion-item >
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+              <ion-row >
+                <ion-col class='seperator-bottom'>Sun</ion-col>
+                <ion-col class='seperator-bottom'>Mon</ion-col>
+                <ion-col class='seperator-bottom'>Tue</ion-col>
+                <ion-col class='seperator-bottom'>Wed</ion-col>
+                <ion-col class='seperator-bottom'>Thu</ion-col>
+                <ion-col class='seperator-bottom'>Fri</ion-col>
+                <ion-col class='seperator-bottom'>Sat</ion-col>
+              </ion-row>
+              <ion-row *ngFor="let days of card.weeks">
+                <ion-col *ngFor="let day of days">
+                  <ul (click)="boom(day)">
+                    <li 
+                        text-center 
+                        *ngIf="day.lighten"
+                        style="color: #aaa;"
+                        >
+                      {{day.day}}
+                    </li>
+                    <li 
+                        text-center 
+                        *ngIf="!day.lighten" 
+                        >
+                      {{day.day}}
+                    </li>
+                    <li><ion-icon name="card"></ion-icon></li>
+                  </ul>
+                </ion-col>
+              </ion-row>
+              
+            </ion-grid>
+          </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>  
+  <!--<ion-item >
     <ion-label>{{telemetry}}</ion-label>
-  </ion-item>
+  </ion-item>-->
 
+</ion-content>

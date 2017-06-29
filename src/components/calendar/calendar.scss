@@ -1,7 +1,16 @@
 calendar {
 
     .cal-header {
-        background-color: #d7ffd9;
+        // background-color: #e8f5e9;
+        // border: 1px dashed #999;
+
+        background-image: url('../assets/images/leather_1.png');
+        -webkit-background-image: url('../assets/images/leather_1.png');
+        background-repeat: horizontal;
+    }
+
+    ion-card {
+        height: 450px;
     }
 
 

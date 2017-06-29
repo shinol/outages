@@ -21,4 +21,8 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
+  ionViewWillEnter(){
+    console.log("IUIUYIUYIUIUIUIUYIU");
+  }
+
 }
